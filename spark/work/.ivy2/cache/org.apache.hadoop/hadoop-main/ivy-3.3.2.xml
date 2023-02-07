@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="org.apache.hadoop"
+		module="hadoop-main"
+		revision="3.3.2"
+		status="release"
+		publication="20220221183307"
+	>
+		<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt" />
+		<description homepage="">
+		Apache Hadoop Main
+		</description>
+		<m:properties__maven-remote-resources-plugin.version>1.5</m:properties__maven-remote-resources-plugin.version>
+		<m:properties__maven-checkstyle-plugin.version>3.1.0</m:properties__maven-checkstyle-plugin.version>
+		<m:properties__maven-bundle-plugin.version>2.5.0</m:properties__maven-bundle-plugin.version>
+		<m:properties__lifecycle-mapping.version>1.0.0</m:properties__lifecycle-mapping.version>
+		<m:properties__distMgmtSnapshotsUrl>https://repository.apache.org/content/repositories/snapshots</m:properties__distMgmtSnapshotsUrl>
+		<m:properties__apache-rat-plugin.version>0.12</m:properties__apache-rat-plugin.version>
+		<m:properties__maven-gpg-plugin.version>1.5</m:properties__maven-gpg-plugin.version>
+		<m:properties__wagon-ssh.version>2.4</m:properties__wagon-ssh.version>
+		<m:properties__restrict-imports.enforcer.version>1.1.0</m:properties__restrict-imports.enforcer.version>
+		<m:properties__clover-maven-plugin.version>4.4.1</m:properties__clover-maven-plugin.version>
+		<m:properties__hadoop.version>3.3.2</m:properties__hadoop.version>
+		<m:properties__distMgmtSnapshotsId>apache.snapshots.https</m:properties__distMgmtSnapshotsId>
+		<m:properties__maven-dependency-plugin.version>3.0.2</m:properties__maven-dependency-plugin.version>
+		<m:properties__dependency-check-maven.version>1.4.3</m:properties__dependency-check-maven.version>
+		<m:properties__maven-javadoc-plugin.version>3.0.1</m:properties__maven-javadoc-plugin.version>
+		<m:properties__distMgmtStagingId>apache.staging.https</m:properties__distMgmtStagingId>
+		<m:properties__maven-antrun-plugin.version>1.7</m:properties__maven-antrun-plugin.version>
+		<m:properties__project.build.sourceEncoding>UTF-8</m:properties__project.build.sourceEncoding>
+		<m:properties__distMgmtSnapshotsName>Apache Development Snapshot Repository</m:properties__distMgmtSnapshotsName>
+		<m:properties__maven-deploy-plugin.version>2.8.1</m:properties__maven-deploy-plugin.version>
+		<m:properties__spotbugs.version>4.2.2</m:properties__spotbugs.version>
+		<m:properties__leveldbjni.group>org.fusesource.leveldbjni</m:properties__leveldbjni.group>
+		<m:properties__distMgmtStagingUrl>https://repository.apache.org/service/local/staging/deploy/maven2</m:properties__distMgmtStagingUrl>
+		<m:properties__distMgmtStagingName>Apache Release Distribution Repository</m:properties__distMgmtStagingName>
+		<m:properties__project.reporting.outputEncoding>UTF-8</m:properties__project.reporting.outputEncoding>
+		<m:properties__maven-assembly-plugin.version>2.4</m:properties__maven-assembly-plugin.version>
+		<m:properties__spotbugs-maven-plugin.version>4.2.0</m:properties__spotbugs-maven-plugin.version>
+		<m:properties__maven-stylus-skin.version>1.5</m:properties__maven-stylus-skin.version>
+		<m:properties__maven-enforcer-plugin.version>3.0.0-M1</m:properties__maven-enforcer-plugin.version>
+		<m:properties__checkstyle.version>8.29</m:properties__checkstyle.version>
+		<m:properties__maven-resources-plugin.version>3.0.1</m:properties__maven-resources-plugin.version>
+		<m:properties__shell-executable>bash</m:properties__shell-executable>
+		<m:properties__maven-site-plugin.version>3.6</m:properties__maven-site-plugin.version>
+		<m:dependency.management__com.cenqua.clover__clover__version>3.0.2</m:dependency.management__com.cenqua.clover__clover__version>
+		<m:maven.plugins>org.apache.maven.plugins__maven-enforcer-plugin__null|org.apache.rat__apache-rat-plugin__null|null__maven-site-plugin__null|org.apache.felix__maven-bundle-plugin__null|org.apache.maven.plugins__maven-checkstyle-plugin__3.1.0|org.owasp__dependency-check-maven__1.4.3|com.github.spotbugs__spotbugs-maven-plugin__null</m:maven.plugins>
+	</info>
+	<configurations>
+		<conf name="default" visibility="public" description="runtime dependencies and master artifact can be used with this conf" extends="runtime,master"/>
+		<conf name="master" visibility="public" description="contains only the artifact published by this module itself, with no transitive dependencies"/>
+		<conf name="compile" visibility="public" description="this is the default scope, used if none is specified. Compile dependencies are available in all classpaths."/>
+		<conf name="provided" visibility="public" description="this is much like compile, but indicates you expect the JDK or a container to provide it. It is only available on the compilation classpath, and is not transitive."/>
+		<conf name="runtime" visibility="public" description="this scope indicates that the dependency is not required for compilation, but is for execution. It is in the runtime and test classpaths, but not the compile classpath." extends="compile"/>
+		<conf name="test" visibility="public" description="this scope indicates that the dependency is not required for normal use of the application, and is only available for the test compilation and execution phases." extends="runtime"/>
+		<conf name="system" visibility="public" description="this scope is similar to provided except that you have to provide the JAR which contains it explicitly. The artifact is always available and is not looked up in a repository."/>
+		<conf name="sources" visibility="public" description="this configuration contains the source artifact of this module, if any."/>
+		<conf name="javadoc" visibility="public" description="this configuration contains the javadoc artifact of this module, if any."/>
+		<conf name="optional" visibility="public" description="contains all optional dependencies"/>
+	</configurations>
+	<publications>
+	</publications>
+</ivy-module>

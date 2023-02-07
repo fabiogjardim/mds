@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.delta</groupId>
+    <artifactId>delta-storage</artifactId>
+    <packaging>jar</packaging>
+    <description>delta-storage</description>
+    <version>2.2.0</version>
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <name>delta-storage</name>
+    <organization>
+        <name>io.delta</name>
+    </organization>
+    <url>https://delta.io/</url>
+    <scm>
+        <url>git@github.com:delta-io/delta.git</url>
+        <connection>scm:git:git@github.com:delta-io/delta.git</connection>
+    </scm>
+    <developers>
+        <developer>
+            <id>marmbrus</id>
+            <name>Michael Armbrust</name>
+            <url>https://github.com/marmbrus</url>
+        </developer>
+        <developer>
+            <id>brkyvz</id>
+            <name>Burak Yavuz</name>
+            <url>https://github.com/brkyvz</url>
+        </developer>
+        <developer>
+            <id>jose-torres</id>
+            <name>Jose Torres</name>
+            <url>https://github.com/jose-torres</url>
+        </developer>
+        <developer>
+            <id>liwensun</id>
+            <name>Liwen Sun</name>
+            <url>https://github.com/liwensun</url>
+        </developer>
+        <developer>
+            <id>mukulmurthy</id>
+            <name>Mukul Murthy</name>
+            <url>https://github.com/mukulmurthy</url>
+        </developer>
+        <developer>
+            <id>tdas</id>
+            <name>Tathagata Das</name>
+            <url>https://github.com/tdas</url>
+        </developer>
+        <developer>
+            <id>zsxwing</id>
+            <name>Shixiong Zhu</name>
+            <url>https://github.com/zsxwing</url>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>3.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-aws</artifactId>
+            <version>3.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.2.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

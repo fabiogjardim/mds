@@ -1,0 +1,6 @@
+2023-01-30 19:33:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_SCHEMA_INFO" not found; SQL statement:
+SELECT VERSION FROM CB_SCHEMA_INFO [42102-199]
+2023-01-30 19:33:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_SERVER" not found; SQL statement:
+SELECT SCHEMA_VERSION FROM CB_SERVER [42102-199]

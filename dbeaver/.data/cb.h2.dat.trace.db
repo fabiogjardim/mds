@@ -1,0 +1,30 @@
+2023-01-18 18:26:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_SCHEMA_INFO" not found; SQL statement:
+SELECT VERSION FROM CB_SCHEMA_INFO [42102-199]
+2023-01-18 18:26:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_SERVER" not found; SQL statement:
+SELECT SCHEMA_VERSION FROM CB_SERVER [42102-199]
+2023-01-30 19:22:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:22:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:22:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:23:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:23:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:23:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:23:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]
+2023-01-30 19:24:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CB_USER_ROLE" not found; SQL statement:
+SELECT ROLE_ID FROM CB_USER_ROLE WHERE USER_ID IN ('user') [42102-199]

@@ -1,0 +1,24 @@
+{
+   "name":"dvdrental",
+   "config":{
+      "connector.class":"io.debezium.connector.postgresql.PostgresConnector",
+      "database.hostname":"postgres",
+      "plugin.name":"pgoutput",
+      "tasks.max": "1",
+      "database.port":"5432",
+      "database.user":"admin",
+      "database.password":"admin",
+      "database.dbname":"dvdrental",
+      "schema.include.list":"public",
+      "database.server.name":"dvdrental",
+      "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "key.converter.schemas.enable": "false",
+      "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "value.converter.schemas.enable": "false",
+      "transforms" : "unwrap",
+      "transforms.unwrap.type" :"io.debezium.transforms.ExtractNewRecordState",
+      "transforms.unwrap.drop.tombstones": "false",
+      "topic.prefix":"dvdrental"
+   }
+}
+        
