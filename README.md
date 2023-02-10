@@ -26,7 +26,7 @@ INICIANDO O AMBIENTE*
    
 ## EXEMPLOS DE COMO INICIR O AMBIENTE
 
-  *No Windows abrir PowerShell, do Linux um terminal e acessar o diretório mdsdockerkkl*
+  *No Windows abrir PowerShell, do Linux um terminal e acessar o diretório mds*
   
 ### Para iniciar um ambiente com Data Lake e Spark
 
