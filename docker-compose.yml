@@ -87,6 +87,7 @@ services:
     depends_on:
       - kafka-broker
       - kafka-schema-registry
+      - postgres
     ports:
       - "8083:8083"
     environment:
@@ -125,6 +126,7 @@ services:
       - kafka-connect
       - kafka-ksqldb-server
       - kafka-ksqldb-cli
+      - postgres
     ports:
       - "9021:9021"
     environment:
@@ -496,6 +498,8 @@ services:
     hostname: metabase
     ports:
       - "3000:3000"
+    depends_on:
+      - postgres
     environment:
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: metabase
@@ -532,6 +536,8 @@ services:
     container_name: dbeaver
     hostname: dbeaver
     restart: unless-stopped 
+    depends_on:
+      - postgres
     #command: ./run-server.sh
     #environment:
     #    CB_ADMIN_NAME: cbadmin 
@@ -551,6 +557,9 @@ services:
     hostname: trino
     ports: 
       - "8080:8080" 
+    depends_on:
+      - postgres
+      - metastore
     volumes: 
       - ./trino/catalog:/etc/trino/catalog  
       - ./trino/conf:/conf 
@@ -597,6 +606,7 @@ services:
     depends_on: 
       - postgres
       - redis
+      - trino
     volumes: 
       - ./superset/docker:/app/docker
       - ./superset/superset_home:/app/superset_home
@@ -647,3 +657,4 @@ services:
       JAVA_OPTS: "-Dplugins.dir=/opt/pinot/plugins -Xms4G -Xmx16G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xloggc:gc-pinot-server.log"
     depends_on:
       - pinot-broker
+      - kafka-broker
