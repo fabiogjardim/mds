@@ -3,7 +3,7 @@
 Ambiente para estudo dos principais framework de um ambiente moderno de dados utilizando docker.
  
 
-![Ecossistema](image/ecossistema.png)
+![mds](image/mds.png)
 
 ## SOFTWARES NECESSÁRIOS
 #### Para a criação e uso do ambiente vamos utilizar o git e o Docker 
@@ -13,7 +13,7 @@ Ambiente para estudo dos principais framework de um ambiente moderno de dados ut
 ## SETUP
 *OBS: A primeira vez que o ambiente foi iniciado todas as imagens serão baixadas para a maquina local. 
 *Para executar todo o ambiente, o servidor/host deve possuir pelo menos 16GB de memória.
-*É indicado subir apens os containers para o worload que será utilizado.
+*É indicado subir apenas os containers para o worload que será utilizado.
 
 
 INICIANDO O AMBIENTE*
@@ -56,7 +56,7 @@ INICIANDO O AMBIENTE*
 ### Iniciar um container específico
          docker-compose up -d [nome do container]
 
-### Iniciar todos os containers (CUIDADO)
+### Iniciar todos os containers (CUIDADO, é muito pesado)
          docker-compose up -d 
 
 ### Acessar log do container
