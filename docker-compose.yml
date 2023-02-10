@@ -253,7 +253,7 @@ services:
     command: webserver
     user: root
     ports:
-      - 8080:8080
+      - 8180:8080
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 10s
