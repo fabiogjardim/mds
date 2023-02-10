@@ -2,7 +2,7 @@
 version: '3' 
 x-airflow-common:
   &airflow-common
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.5.0}
+  image: fjardim/mds-airflow
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -30,7 +30,7 @@ x-airflow-common:
 
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.3.0
+    image: fjardim/mds-kafka-zookeeper
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -40,7 +40,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   kafka-broker:
-    image: confluentinc/cp-kafka:7.3.0
+    image: fjardim/mds-kafka-broker
     container_name: kafka-broker
     hostname: kafka-broker
     ports:
@@ -68,7 +68,7 @@ services:
       # AUTO_REGISTER_SCHEMAS : 'false'
 
   kafka-schema-registry:
-    image: confluentinc/cp-schema-registry:7.3.0
+    image: fjardim/mds-kafka-schema-registry
     hostname: kafka-schema-registry
     container_name: kafka-schema-registry
     depends_on:
@@ -81,7 +81,7 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
 
   kafka-connect:
-    image: confluentinc/cp-kafka-connect
+    image: fjardim/mds-kafka-connect
     hostname: kafka-connect
     container_name: kafka-connect
     depends_on:
@@ -116,7 +116,7 @@ services:
   
          
   kafka-control-center:
-    image: confluentinc/cp-enterprise-control-center
+    image: fjardim/mds-kafka-control-center
     hostname: kafka-control-center
     container_name: kafka-control-center
     depends_on:
@@ -142,7 +142,7 @@ services:
       PORT: 9021
 
   kafka-ksqldb-server:
-    image: confluentinc/cp-ksqldb-server
+    image: fjardim/mds-kafka-ksqldb-server
     hostname: kafka-ksqldb-server
     container_name: kafka-ksqldb-server
     depends_on:
@@ -165,7 +165,7 @@ services:
       KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'
 
   kafka-ksqldb-cli:
-    image: confluentinc/cp-ksqldb-cli
+    image: fjardim/mds-kafka-ksqldb-cli
     container_name: kafka-ksqldb-cli
     hostname: kafka-ksqldb-cli
     depends_on:
@@ -177,7 +177,7 @@ services:
 
   
   kafka-rest-proxy:
-   image: confluentinc/cp-kafka-rest:6.1.0
+   image: fjardim/mds-kafka-rest
    hostname: kafka-rest-proxy
    depends_on:
      - kafka-broker
@@ -194,7 +194,7 @@ services:
 
 
   nifi:
-    image: apache/nifi
+    image: fjardim/mds-nifi
     container_name: nifi
     hostname: nifi
     volumes:
@@ -214,7 +214,7 @@ services:
           memory: 1024m
 
   postgres:
-    image: postgres:13
+    image: fjardim/mds-postgres
     container_name: postgres
     hostname: postgres
     environment:
@@ -233,7 +233,7 @@ services:
       retries: 5
     
   redis:
-    image: redis:latest
+    image: fjardim/mds-redis
     container_name: redis
     hostname: redis
     expose:
@@ -408,7 +408,7 @@ services:
       - airflow
 
   spark-master:
-    image: pyspark-notebook
+    image: fjardim/mds-spark
     hostname: spark-master
     container_name: spark-master
     command: 
@@ -453,7 +453,7 @@ services:
           memory: 500m
 
   spark-worker:
-    image: pyspark-notebook
+    image: fjardim/mds-spark
     hostname: spark-worker
     container_name: spark-worker
     #command: start-notebook.sh --NotebookApp.token='' 
@@ -491,7 +491,7 @@ services:
           memory: 1g
 
   metabase:
-    image: metabase/metabase
+    image: fjardim/mds-metabase
     container_name: metabase
     hostname: metabase
     ports:
@@ -505,7 +505,7 @@ services:
       MB_DB_HOST: postgres
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+    image: fjardim/mds-elasticsearch
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -518,7 +518,7 @@ services:
       - ./scripts:/scripts
       
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.7.0
+    image: fjardim/mds-kibana
     ports:
       - "5601:5601"
     environment:
@@ -528,7 +528,7 @@ services:
 
 
   dbeaver:
-    image: dbeaver/cloudbeaver
+    image: fjardim/mds-dbeaver
     container_name: dbeaver
     hostname: dbeaver
     restart: unless-stopped 
@@ -546,7 +546,7 @@ services:
 
 
   trino:
-    image: fjardim/trino 
+    image: fjardim/mds-trino 
     container_name: trino
     hostname: trino
     ports: 
@@ -557,7 +557,7 @@ services:
       - ./scripts:/scripts
 
   metastore:
-     hostname: metastore
+     hostname: fjardim/mds-metastore
      image: 'prestodb/hive3.1-hive:5'
      container_name: metastore
      environment:
@@ -568,7 +568,7 @@ services:
       
 
   minio:
-    image: quay.io/minio/minio:RELEASE.2023-01-25T00-19-54Z
+    image: fjardim/mds-minio
     container_name: minio
     command:  server --console-address ":9001" /data
     ports:
@@ -586,7 +586,7 @@ services:
 
   superset:
     env_file: ./superset/docker/env-non-dev
-    image: superset
+    image: fjardim/mds-superset
     container_name: superset_app
     hostname: superset_app
     command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
@@ -604,7 +604,7 @@ services:
 
 
   pinot-zookeeper:
-    image: zookeeper:3.5.6
+    image: fjardim/mds-pinot-zookeeper
     container_name: pinot-zookeeper
     ports:
       - "2182:2181"
@@ -613,7 +613,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   pinot-controller:
-    image: apachepinot/pinot:0.12.0
+    image: fjardim/mds-pinot
     command: "StartController -zkAddress pinot-zookeeper:2181"
     container_name: pinot-controller
     restart: unless-stopped
@@ -625,7 +625,7 @@ services:
       - pinot-zookeeper
 
   pinot-broker:
-    image: apachepinot/pinot:0.12.0
+    image: fjardim/mds-pinot
     command: "StartBroker -zkAddress pinot-zookeeper:2181"
     restart: unless-stopped
     container_name: "pinot-broker"
@@ -637,7 +637,7 @@ services:
       - pinot-controller
 
   pinot-server:
-    image: apachepinot/pinot:0.12.0
+    image: fjardim/mds-pinot
     command: "StartServer -zkAddress pinot-zookeeper:2181"
     restart: unless-stopped
     container_name: "pinot-server"
