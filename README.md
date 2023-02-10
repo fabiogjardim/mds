@@ -1,4 +1,4 @@
-# BIG DATA ECOSYSTEM MODERN DATA STACK COM DOCKER
+# BIG DATA ECOSYSTEM - MODERN DATA STACK COM DOCKER
 
 Ambiente para estudo dos principais framework de um ambiente moderno de dados utilizando docker.
  
@@ -11,33 +11,36 @@ Ambiente para estudo dos principais framework de um ambiente moderno de dados ut
    *  [Instalação do git](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)
    
 ## SETUP
-*OBS: A primeira vez que o ambiente foi iniciado todas as imagens serão baixadas para a maquina local. 
-*Para executar todo o ambiente, o servidor/host deve possuir pelo menos 16GB de memória.
-*É indicado subir apenas os containers para o worload que será utilizado.
+   * OBS: A primeira vez que o ambiente for iniciado, todas as imagens serão baixadas para a maquina local. 
+   * Para executar todo o ambiente, o servidor/host deve possuir pelo menos 16GB de memória.
+   * É indicado subir apenas os containers para o worload que será utilizado/testado.
 
 
 INICIANDO O AMBIENTE*
 
-#### Em um terminal/DOS/PowerShell, realizar o clone do projeto no github
+#### Em um terminal/DOS/PowerShell, realizar o clone do projeto no github.
           git clone https://github.com/fabiogjardim/mds.git
 
-#### Ai realizar o clone do repositório, o diretória mds será criado.
+#### Ao realizar o clone do repositório, o diretória mds será criado em sua máquina local.
 
    
 ## EXEMPLOS DE COMO INICIR O AMBIENTE
 
-  *No Windows abrir PowerShell, do Linux um terminal*
+  *No Windows abrir PowerShell, do Linux um terminal e acessar o diretório mdsdockerkkl*
   
-## Para iniciar um ambiente com Data Lake e Spark
+### Para iniciar um ambiente com Data Lake e Spark
 
           docker-compose up -d minio spark-worker        
 
-## Para iniciar um ambiente com Ingestão de dados com CDC no Postgres utilizando Kafka
+### Para iniciar um ambiente com Ingestão de dados com CDC no Postgres utilizando Kafka
  
          docker-compose up -d minio kafka-broker kafka-connect nifi postgres
 
 ## SOLUCIONANDO PROBLEMAS 
-   
+
+### Parar verificar os containers em execução
+         docker ps 
+
 ### Parar um containers
          docker stop [nome do container]      
 
