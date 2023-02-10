@@ -165,7 +165,7 @@ services:
       KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'
 
   kafka-ksqldb-cli:
-    image: fjardim/mds-kafka-ksqldb-cli
+    image: fjardim/mds-kafka-sqldb-cli
     container_name: kafka-ksqldb-cli
     hostname: kafka-ksqldb-cli
     depends_on:
