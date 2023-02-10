@@ -3,7 +3,7 @@
 Ambiente para estudo dos principais framework de um ambiente moderno de dados utilizando docker.
  
 
-![Ecossistema]([mds/image/frontpage.png](https://github.com/fabiogjardim/mds/image/frontpage.png))
+![Ecossistema](/mds/image/frontpage.png)
 
 ## SOFTWARES NECESSÁRIOS
 #### Para a criação e uso do ambiente vamos utilizar o git e o Docker 
