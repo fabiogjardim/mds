@@ -566,8 +566,8 @@ services:
       - ./scripts:/scripts
 
   metastore:
-     hostname: fjardim/mds-metastore
-     image: 'prestodb/hive3.1-hive:5'
+     hostname: metastore
+     image: fjardim/mds-metastore
      container_name: metastore
      environment:
        AWS_ACCESS_KEY_ID: datalake
