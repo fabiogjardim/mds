@@ -3,7 +3,7 @@
 Ambiente para estudo dos principais framework de um ambiente moderno de dados utilizando docker.
  
 
-![mds](image/mds.png)
+![mds](image/front.png)
 
 ## SOFTWARES NECESSÁRIOS
 #### Para a criação e uso do ambiente vamos utilizar o git e o Docker 
