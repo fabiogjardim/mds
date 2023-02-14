@@ -87,8 +87,8 @@ INICIANDO O AMBIENTE*
     Senha: admin
 
    ##### Metabase
-    Usuário: bigdata@class.com
-    Senha: bigdata123 
+    Usuário: admin@mds.com
+    Senha: admin 
 
    ##### Postgres
     Usuário: admin
