@@ -234,10 +234,10 @@ services:
       - ./postgres/postgres-db-volume:/var/lib/postgresql/data
       - ./postgres:/util
       - ./scripts:/scripts
-    healthcheck:
-      test: ["CMD", "pg_isready"]
-      interval: 5s
-      retries: 5
+    #healthcheck:
+    #  test: ["CMD", "pg_isready"]
+    #  interval: 5s
+    #  retries: 5
     
   redis:
     image: fjardim/mds-redis
