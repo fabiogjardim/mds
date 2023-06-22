@@ -80,7 +80,7 @@
 </property>
 <property>
   <name>fs.s3a.endpoint</name>
-  <value>http://172.20.0.3:9000</value>
+  <value>http://minio:9000</value>
 </property>
 <property>
   <name>fs.s3a.access.key</name>

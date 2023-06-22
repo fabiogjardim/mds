@@ -1,0 +1,79 @@
+[2023-02-16T16:49:11.092+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2023-02-16T16:49:11.100+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2023-02-16T16:49:11.103+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2023-02-16T16:49:11.107+0000] {manager.py:726} INFO - Searching for files in /opt/airflow/dags
+[2023-02-16T16:49:11.136+0000] {manager.py:729} INFO - There are 1 files in /opt/airflow/dags
+[2023-02-16T16:49:11.423+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/spark.py     45  0.07s             0           0
+================================================================================
+[2023-02-16T16:49:12.449+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:23:51.899+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2023-02-27T14:23:51.942+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2023-02-27T14:23:51.944+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2023-02-27T14:23:51.948+0000] {manager.py:726} INFO - Searching for files in /opt/airflow/dags
+[2023-02-27T14:23:52.084+0000] {manager.py:729} INFO - There are 2 files in /opt/airflow/dags
+[2023-02-27T14:23:53.012+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/dag_exeplo.py     44  0.41s             0           0
+/opt/airflow/dags/spark.py          45  0.39s             0           0
+================================================================================
+[2023-02-27T14:23:54.121+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:23:54.121+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:23:54.130+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:23:56.922+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:23:57.057+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:26:22.460+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2023-02-27T14:26:22.463+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2023-02-27T14:26:22.465+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2023-02-27T14:26:22.468+0000] {manager.py:726} INFO - Searching for files in /opt/airflow/dags
+[2023-02-27T14:26:22.549+0000] {manager.py:729} INFO - There are 2 files in /opt/airflow/dags
+[2023-02-27T14:26:23.249+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/dag_exeplo.py     45  0.37s             0           0
+/opt/airflow/dags/spark.py          46  0.19s             0           0
+================================================================================
+[2023-02-27T14:26:24.415+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:26:24.415+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:26:25.074+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:28:37.057+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2023-02-27T14:28:37.061+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2023-02-27T14:28:37.064+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2023-02-27T14:28:37.067+0000] {manager.py:726} INFO - Searching for files in /opt/airflow/dags
+[2023-02-27T14:28:37.154+0000] {manager.py:729} INFO - There are 2 files in /opt/airflow/dags
+[2023-02-27T14:28:37.388+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/dag_exeplo.py     41  0.07s             0           0
+/opt/airflow/dags/spark.py          42  0.06s             0           0
+================================================================================
+[2023-02-27T14:28:38.412+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2023-02-27T14:30:18.424+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2023-02-27T14:30:18.429+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2023-02-27T14:30:18.432+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2023-02-27T14:30:18.435+0000] {manager.py:726} INFO - Searching for files in /opt/airflow/dags
+[2023-02-27T14:30:18.534+0000] {manager.py:729} INFO - There are 1 files in /opt/airflow/dags
+[2023-02-27T14:30:18.740+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/spark.py     42  0.04s             0           0
+================================================================================
+[2023-02-27T14:30:20.787+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15

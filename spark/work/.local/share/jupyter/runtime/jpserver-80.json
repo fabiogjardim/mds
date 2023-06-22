@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "0.0.0.0",
+  "password": false,
+  "pid": 80,
+  "port": 8888,
+  "root_dir": "/home/user",
+  "secure": false,
+  "sock": "",
+  "token": "",
+  "url": "http://spark-worker:8888/",
+  "version": "2.0.6"
+}

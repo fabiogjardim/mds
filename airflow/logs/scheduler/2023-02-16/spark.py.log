@@ -1,0 +1,7 @@
+[2023-02-16T16:49:11.400+0000] {processor.py:153} INFO - Started process (PID=45) to work on /opt/airflow/dags/spark.py
+[2023-02-16T16:49:11.406+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/spark.py for tasks to queue
+[2023-02-16T16:49:11.413+0000] {logging_mixin.py:137} INFO - [2023-02-16T16:49:11.412+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/spark.py
+[2023-02-16T16:49:11.483+0000] {processor.py:753} INFO - DAG(s) dict_keys(['spark-test']) retrieved from /opt/airflow/dags/spark.py
+[2023-02-16T16:49:11.753+0000] {logging_mixin.py:137} INFO - [2023-02-16T16:49:11.752+0000] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-02-16T16:49:11.845+0000] {logging_mixin.py:137} INFO - [2023-02-16T16:49:11.845+0000] {dag.py:3427} INFO - Setting next_dagrun for spark-test to 2023-02-16T00:00:00+00:00, run_after=2023-02-17T00:00:00+00:00
+[2023-02-16T16:49:11.934+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/spark.py took 0.549 seconds

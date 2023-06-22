@@ -1,0 +1,39 @@
+{
+   "id":3859,
+   "uid":"4eb7a160-2d61-48aa-b372-fdadc0eaa994",
+   "password":"7JR4bSspiL",
+   "first_name":"Darrel",
+   "last_name":"Wolf",
+   "username":"darrel.wolf",
+   "email":"darrel.wolf@email.com",
+   "avatar":"https://robohash.org/optionatussuscipit.png?size=300x300&set=set1",
+   "gender":"Polygender",
+   "phone_number":"+266 (253) 686-4143 x3368",
+   "social_insurance_number":"275712669",
+   "date_of_birth":"1961-10-21",
+   "employment":{
+      "title":"Technology Officer",
+      "key_skill":"Confidence"
+   },
+   "address":{
+      "city":"Port Orenport",
+      "street_name":"Marcene Fort",
+      "street_address":"97383 Hoeger Knoll",
+      "zip_code":"14215",
+      "state":"Oregon",
+      "country":"United States",
+      "coordinates":{
+         "lat":43.43100509535418,
+         "lng":33.35128708114988
+      }
+   },
+   "credit_card":{
+      "cc_number":"6771-8933-9335-5740"
+   },
+   "subscription":{
+      "plan":"Student",
+      "status":"Blocked",
+      "payment_method":"Apple Pay",
+      "term":"Annual"
+   }
+}

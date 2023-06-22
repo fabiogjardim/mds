@@ -17,8 +17,87 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<property><name>hadoop.proxyuser.hue.hosts</name><value>*</value></property>
-<property><name>fs.defaultFS</name><value>hdfs://namenode:8020</value></property>
-<property><name>hadoop.proxyuser.hue.groups</name><value>*</value></property>
-<property><name>hadoop.http.staticuser.user</name><value>root</value></property>
+<property>
+  <name>hadoop.proxyuser.hue.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>fs.defaultFS</name>
+  <value>hdfs://metastore:8020</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hue.groups</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.http.staticuser.user</name>
+  <value>root</value>
+</property>
+<property>
+  <name>fs.default.name</name>
+  <value>hdfs://metastore:9000</value>
+</property>
+<!-- HTTPFS proxy user setting -->
+<property>
+  <name>hadoop.proxyuser.httpfs.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.httpfs.groups</name>
+  <value>*</value>
+</property>
+<!-- Llama proxy user setting -->
+<property>
+  <name>hadoop.proxyuser.llama.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.llama.groups</name>
+  <value>*</value>
+</property>
+<!-- Hive impersonation -->
+<property>
+  <name>hadoop.proxyuser.hive.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hive.groups</name>
+  <value>*</value>
+</property>
+<!-- Hdfs impersonation -->
+<property>
+  <name>hadoop.proxyuser.hdfs.groups</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hdfs.hosts</name>
+  <value>*</value>
+</property>
+<!-- Minio properties -->
+<property>
+  <name>fs.s3a.connection.ssl.enabled</name>
+  <value>true</value>
+</property>
+<property>
+  <name>fs.s3a.endpoint</name>
+  <value>http://minio:9000</value>
+</property>
+<property>
+  <name>fs.s3a.access.key</name>
+  <value>datalake</value>
+</property>
+<property>
+  <name>fs.s3a.secret.key</name>
+  <value>datalake</value>
+</property>
+<property>
+  <name>fs.s3a.path.style.access</name>
+  <value>true</value>
+</property>
+<property>
+  <name>fs.s3a.impl</name>
+  <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+</property>
+
+
 </configuration>

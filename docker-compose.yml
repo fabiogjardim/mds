@@ -213,7 +213,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 1024m
+          memory: 2048m
 
   postgres:
     image: fjardim/mds-postgres
@@ -449,10 +449,10 @@ services:
 
     #   SPARK_MASTER: local[*]
     #   JUPYTER_PORT: 8889
-    deploy:
-      resources:
-        limits:
-          memory: 500m
+    #deploy:
+    #  resources:
+    #    limits:
+    #      memory: 500m
 
   spark-worker:
     image: fjardim/mds-spark
@@ -487,10 +487,10 @@ services:
     #   JUPYTER_PORT: 8889
     depends_on:
         - spark-master
-    deploy:
-      resources:
-        limits:
-          memory: 1g
+    #deploy:
+    #  resources:
+    #    limits:
+    #      memory: 1g
 
   metabase:
     image: fjardim/mds-metabase
@@ -535,9 +535,10 @@ services:
 
   dbeaver:
     image: fjardim/mds-dbeaver
+    #image: dbeaver/cloudbeaver:latest
     container_name: dbeaver
     hostname: dbeaver
-    restart: unless-stopped 
+    #restart: unless-stopped 
     depends_on:
       - postgres
     #command: ./run-server.sh
@@ -548,35 +549,71 @@ services:
       - "8010:8978" 
     volumes:
       - ./scripts:/scripts 
-    #  - ./dbeaver:/opt/cloudbeaver/workspace 
-    #  - ./dbeaver/workspace/cloudbeaver.conf:/opt/cloudbeaver/conf/cloudbeaver.conf
-    #  - ./dbeaver/workspace/initial-data.conf:/opt/cloudbeaver/conf/initial-data.conf 
-
+      #- ./dbeaver:/opt/cloudbeaver/workspace 
+      #- ./dbeaver/workspace/cloudbeaver.conf:/opt/cloudbeaver/conf/cloudbeaver.conf
+      #- ./dbeaver/workspace/initial-data.conf:/opt/cloudbeaver/conf/initial-data.conf 
 
   trino:
     image: fjardim/mds-trino 
+    #image: trinodb/trino:latest
     container_name: trino
     hostname: trino
     ports: 
       - "8080:8080" 
     depends_on:
       - postgres
-      - metastore
+      #- metastore
     volumes: 
       - ./trino/catalog:/etc/trino/catalog  
       - ./trino/conf:/conf
       - ./scripts:/scripts
 
-  metastore:
-     hostname: metastore
-     image: fjardim/mds-metastore
-     container_name: metastore
-     environment:
-       AWS_ACCESS_KEY_ID: datalake
-       AWS_SECRET_ACCESS_KEY: datalake
-     volumes:
-       - ./trino/conf/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml:ro
-      
+  hive:
+    hostname: hive
+    #image: apache/hive:4.0.0-alpha-2
+    image: fjardim/mds-hive
+    container_name: hive
+    environment:
+      AWS_ACCESS_KEY_ID: datalake
+      AWS_SECRET_ACCESS_KEY: datalake
+      HIVE_CUSTOM_CONF_DIR: "/hive_custom_conf"
+      SERVICE_NAME: hiveserver2
+      SERVICE_OPTS: "-Dhive.metastore.uris=thrift://metastore:9083" 
+      IS_RESUME: "true"
+      #HIVE_VERSION: "3.1.3"
+    ports:
+       - "10000:10000"
+       - "10002:10002"
+    depends_on:
+        - hive-metastore
+    user: root
+    volumes:
+       - ./hive/conf:/hive_custom_conf
+       - ./hive:/util
+
+  hive-metastore:
+    hostname: metastore
+    image: fjardim/mds-hive-metastore
+    #image: apache/hive:4.0.0-alpha-2
+    container_name: metastore
+    environment:
+      AWS_ACCESS_KEY_ID: datalake
+      AWS_SECRET_ACCESS_KEY: datalake
+      HIVE_CUSTOM_CONF_DIR: "/hive_custom_conf"
+      SERVICE_NAME: metastore
+      #SERVICE_OPTS: "-Dhive.metastore.uris=thrift://metastore:9083" 
+      IS_RESUME: "true"
+      DB_DRIVER: postgres 
+      SERVICE_OPTS: "-Djavax.jdo.option.ConnectionDriverName=org.postgresql.Driver -Djavax.jdo.option.ConnectionURL=jdbc:postgresql://postgres:5432/metastore_db -Djavax.jdo.option.ConnectionUserName=admin -Djavax.jdo.option.ConnectionPassword=admin" 
+    ports:
+       - "9083:9083"
+    depends_on: 
+      - postgres
+    user: root
+    volumes:
+       - ./hive/meta:/opt/hive/data/warehouse 
+       - ./hive/conf:/hive_custom_conf
+       - ./hive:/util
 
   minio:
     image: fjardim/mds-minio
@@ -660,3 +697,56 @@ services:
     depends_on:
       - pinot-broker
       - kafka-broker
+
+  namenode:
+    image: fjardim/mds-namenode
+    container_name: namenode
+    hostname: namenode
+    volumes:
+      - ./hadoop/hdfs/namenode:/hadoop/dfs/name
+      - ./hadoop/util:/util
+    env_file:
+      - ./hadoop/hadoop.env
+    ports:
+      - "9870:9870"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+  
+  datanode:
+    image: fjardim/mds-datanode
+    container_name: datanode
+    hostname: datanode
+    volumes:
+      - ./hadoop/hdfs/datanode:/hadoop/dfs/data
+      - ./hadoop/util:/util
+    env_file:
+      - ./hadoop/hadoop.env
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    depends_on:
+      - namenode
+    ports:
+      - "9864:9864"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+
+  hue:
+    image: fjardim/mds-hue
+    hostname: hue
+    container_name: hue
+    dns: 8.8.8.8
+    ports:
+    - "8888:8888"
+    volumes:
+      - ./hue/hue.ini:/usr/share/hue/desktop/conf/z-hue.ini
+    depends_on:
+      - "postgres"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+
