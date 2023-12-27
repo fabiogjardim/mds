@@ -61,8 +61,6 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_JMX_PORT: 9101
       KAFKA_JMX_HOSTNAME: kafka-broker
-      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka-broker:9092
-      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
       CONFLUENT_METRICS_ENABLE: 'false'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
       # AUTO_REGISTER_SCHEMAS : 'false'
@@ -113,8 +111,7 @@ services:
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
-      CONNECT_REST_ADVERTISED_HOST_NAME: localhost
-  
+      
          
   kafka-control-center:
     image: fjardim/mds-kafka-control-center
@@ -186,7 +183,6 @@ services:
      - kafka-schema-registry
    ports:
      - 8082:8082
-   hostname: rest-proxy
    container_name: kafka-rest-proxy
    environment:
      KAFKA_REST_HOST_NAME: rest-proxy
