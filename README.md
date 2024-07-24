@@ -11,7 +11,8 @@ Ambiente para estudo dos principais framework de um ambiente moderno de dados ut
    *  [Instalação do git](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)
    
 ## SETUP
-   * OBS: A primeira vez que o ambiente for iniciado, todas as imagens serão baixadas para a maquina local. 
+   * Executar o scritp.bat para fazer download das imagens. 
+   * Todas as imagens serão baixadas para a maquina local. 
    * Para executar todo o ambiente, o servidor/host deve possuir pelo menos 16GB de memória.
    * É indicado subir apenas os containers para o worload que será utilizado/testado.
 
