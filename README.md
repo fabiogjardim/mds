@@ -11,19 +11,17 @@ Ambiente para estudo dos principais framework de um ambiente moderno de dados ut
    *  [Instalação do git](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)
    
 ## SETUP
-   * Executar o scritp.bat para fazer download das imagens. 
-   * Todas as imagens serão baixadas para a maquina local. 
-   * Para executar todo o ambiente, o servidor/host deve possuir pelo menos 16GB de memória.
-   * É indicado subir apenas os containers para o worload que será utilizado/testado.
+
+   #### Em um terminal/DOS/PowerShell, realizar o clone do projeto no github.
+          git clone https://github.com/fabiogjardim/mds.git
+
+   #### Ao realizar o clone do repositório, o diretória mds será criado em sua máquina local.
+   #### Executar o scritp.bat para fazer download das imagens. 
+   #### Todas as imagens serão baixadas para a maquina local. 
+   #### É indicado subir apenas os containers para o worload que será utilizado/testado.
 
 
 INICIANDO O AMBIENTE*
-
-#### Em um terminal/DOS/PowerShell, realizar o clone do projeto no github.
-          git clone https://github.com/fabiogjardim/mds.git
-
-#### Ao realizar o clone do repositório, o diretória mds será criado em sua máquina local.
-
    
 ## EXEMPLOS DE COMO INICIR O AMBIENTE
 
