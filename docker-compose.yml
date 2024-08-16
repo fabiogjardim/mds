@@ -30,6 +30,7 @@ x-airflow-common:
 
 services:
   zookeeper:
+    platform: linux/amd64
     image: fjardim/mds-kafka-zookeeper
     hostname: zookeeper
     container_name: zookeeper
@@ -40,6 +41,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   kafka-broker:
+    platform: linux/amd64
     image: fjardim/mds-kafka-broker
     container_name: kafka-broker
     hostname: kafka-broker
@@ -66,6 +68,7 @@ services:
       # AUTO_REGISTER_SCHEMAS : 'false'
 
   kafka-schema-registry:
+    platform: linux/amd64
     image: fjardim/mds-kafka-schema-registry
     hostname: kafka-schema-registry
     container_name: kafka-schema-registry
@@ -79,6 +82,7 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
 
   kafka-connect:
+    platform: linux/amd64
     image: fjardim/mds-kafka-connect
     hostname: kafka-connect
     container_name: kafka-connect
@@ -114,6 +118,7 @@ services:
       
          
   kafka-control-center:
+    platform: linux/amd64
     image: fjardim/mds-kafka-control-center
     hostname: kafka-control-center
     container_name: kafka-control-center
@@ -141,6 +146,7 @@ services:
       PORT: 9021
 
   kafka-ksqldb-server:
+    platform: linux/amd64
     image: fjardim/mds-kafka-ksqldb-server
     hostname: kafka-ksqldb-server
     container_name: kafka-ksqldb-server
@@ -164,6 +170,7 @@ services:
       KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'
 
   kafka-ksqldb-cli:
+    platform: linux/amd64
     image: fjardim/mds-kafka-sqldb-cli
     container_name: kafka-ksqldb-cli
     hostname: kafka-ksqldb-cli
@@ -176,6 +183,7 @@ services:
 
   
   kafka-rest-proxy:
+   platform: linux/amd64
    image: fjardim/mds-kafka-rest
    hostname: kafka-rest-proxy
    depends_on:
@@ -192,6 +200,7 @@ services:
 
 
   nifi:
+    platform: linux/amd64
     image: fjardim/mds-nifi
     container_name: nifi
     hostname: nifi
@@ -212,6 +221,7 @@ services:
           memory: 2048m
 
   postgres:
+    platform: linux/amd64
     image: fjardim/mds-postgres
     container_name: postgres
     hostname: postgres
@@ -231,6 +241,7 @@ services:
     #  retries: 5
     
   redis:
+    platform: linux/amd64
     image: fjardim/mds-redis
     container_name: redis
     hostname: redis
@@ -406,6 +417,7 @@ services:
       - airflow
 
   spark-master:
+    platform: linux/amd64
     image: fjardim/mds-spark
     hostname: spark-master
     container_name: spark-master
@@ -451,6 +463,7 @@ services:
     #      memory: 500m
 
   spark-worker:
+    platform: linux/amd64
     image: fjardim/mds-spark
     hostname: spark-worker
     container_name: spark-worker
@@ -489,6 +502,7 @@ services:
     #      memory: 1g
 
   metabase:
+    platform: linux/amd64
     image: fjardim/mds-metabase
     container_name: metabase
     hostname: metabase
@@ -507,6 +521,7 @@ services:
       MB_PASSWORD_LENGTH: 4
 
   elasticsearch:
+    platform: linux/amd64
     image: fjardim/mds-elasticsearch
     ports:
       - "9200:9200"
@@ -520,6 +535,7 @@ services:
       - ./scripts:/scripts
       
   kibana:
+    platform: linux/amd64
     image: fjardim/mds-kibana
     ports:
       - "5601:5601"
@@ -528,30 +544,9 @@ services:
     depends_on:
       - elasticsearch
 
-
-  dbeaver:
-    image: fjardim/mds-dbeaver
-    #image: dbeaver/cloudbeaver:latest
-    container_name: dbeaver
-    hostname: dbeaver
-    #restart: unless-stopped 
-    depends_on:
-      - postgres
-    #command: ./run-server.sh
-    #environment:
-    #    CB_ADMIN_NAME: cbadmin 
-    #    CB_ADMIN_PASSWORD: cbadmin123
-    ports: 
-      - "8010:8978" 
-    volumes:
-      - ./scripts:/scripts 
-      #- ./dbeaver:/opt/cloudbeaver/workspace 
-      #- ./dbeaver/workspace/cloudbeaver.conf:/opt/cloudbeaver/conf/cloudbeaver.conf
-      #- ./dbeaver/workspace/initial-data.conf:/opt/cloudbeaver/conf/initial-data.conf 
-
   trino:
     image: fjardim/mds-trino 
-    #image: trinodb/trino:latest
+    platform: linux/amd64
     container_name: trino
     hostname: trino
     ports: 
@@ -565,8 +560,8 @@ services:
       - ./scripts:/scripts
 
   hive:
+    platform: linux/amd64
     hostname: hive
-    #image: apache/hive:4.0.0-alpha-2
     image: fjardim/mds-hive
     container_name: hive
     environment:
@@ -588,6 +583,7 @@ services:
        - ./hive:/util
 
   hive-metastore:
+    platform: linux/amd64
     hostname: metastore
     image: fjardim/mds-hive-metastore
     #image: apache/hive:4.0.0-alpha-2
@@ -612,6 +608,7 @@ services:
        - ./hive:/util
 
   minio:
+    platform: linux/amd64
     image: fjardim/mds-minio
     container_name: minio
     command:  server --console-address ":9001" /data
@@ -629,6 +626,7 @@ services:
       - ./scripts:/scripts
 
   superset:
+    platform: linux/amd64
     env_file: ./superset/docker/env-non-dev
     image: fjardim/mds-superset
     container_name: superset_app
@@ -649,6 +647,7 @@ services:
 
 
   pinot-zookeeper:
+    platform: linux/amd64
     image: fjardim/mds-pinot-zookeeper
     container_name: pinot-zookeeper
     ports:
@@ -658,6 +657,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   pinot-controller:
+    platform: linux/amd64
     image: fjardim/mds-pinot
     command: "StartController -zkAddress pinot-zookeeper:2181"
     container_name: pinot-controller
@@ -670,6 +670,7 @@ services:
       - pinot-zookeeper
 
   pinot-broker:
+    platform: linux/amd64
     image: fjardim/mds-pinot
     command: "StartBroker -zkAddress pinot-zookeeper:2181"
     restart: unless-stopped
@@ -682,6 +683,7 @@ services:
       - pinot-controller
 
   pinot-server:
+    platform: linux/amd64
     image: fjardim/mds-pinot
     command: "StartServer -zkAddress pinot-zookeeper:2181"
     restart: unless-stopped
@@ -695,6 +697,7 @@ services:
       - kafka-broker
 
   namenode:
+    platform: linux/amd64
     image: fjardim/mds-namenode
     container_name: namenode
     hostname: namenode
@@ -711,6 +714,7 @@ services:
           memory: 500m
   
   datanode:
+    platform: linux/amd64
     image: fjardim/mds-datanode
     container_name: datanode
     hostname: datanode
@@ -731,6 +735,7 @@ services:
           memory: 500m
 
   hue:
+    platform: linux/amd64
     image: fjardim/mds-hue
     hostname: hue
     container_name: hue
